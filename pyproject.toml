@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "edu-backend-backend"
+version = "0.1.0"
+description = "A Backend for educational applications."
+authors = ["Christian Grossmüller"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+psycopg2-binary = "*"
+django = "*"
+gunicorn = "*"
+django-environ = "*"
+gevent = "*"
+whitenoise = "*"
+raven = "*"
+djangorestframework = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+werkzeug = "*"
+django-debug-toolbar = "*"
+ipdb = "*"
+pytest-django = "*"
+django-extensions = "*"
+pytest-isort = "*"
+pytest-sugar = "*"
+coverage = "*"
+django-coverage-plugin = "*"
+pytest-cov = "*"
+codecov = "*"
+
+[build-system]
+# Should be the same as `$POETRY_VERSION`:
+requires = ["poetry>=1.2.0"]
