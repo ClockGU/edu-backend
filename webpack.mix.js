@@ -10,8 +10,8 @@ mix.setPublicPath("application_mask/static"); // Path where mix-manifest.json is
 if (process.argv.includes("--browser-sync")) {
   mix.browserSync("localhost:8000");
 }
-mix.copy('node_modules/@mdi/font/fonts/', 'dist/fonts/')
 // Now you can use full mix api
 // Refer the file that was created in Step 2 to be compile
 mix.js(`${resourcesPath}/js/application_mask.js`, `${staticPath}/`).vuetify().vue();
 mix.sass(`${resourcesPath}/sass/application_mask.scss`, `${staticPath}/`);
+mix.copy('node_modules/@mdi/font/fonts/', `${staticPath}/fonts/`);

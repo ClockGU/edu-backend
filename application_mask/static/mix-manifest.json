@@ -1,8 +1,8 @@
 {
     "/build/application_mask.js": "/build/application_mask.js",
     "/build/application_mask.css": "/build/application_mask.css",
-    "/dist/fonts/materialdesignicons-webfont.eot": "/dist/fonts/materialdesignicons-webfont.eot",
-    "/dist/fonts/materialdesignicons-webfont.ttf": "/dist/fonts/materialdesignicons-webfont.ttf",
-    "/dist/fonts/materialdesignicons-webfont.woff": "/dist/fonts/materialdesignicons-webfont.woff",
-    "/dist/fonts/materialdesignicons-webfont.woff2": "/dist/fonts/materialdesignicons-webfont.woff2"
+    "/build/fonts/materialdesignicons-webfont.eot": "/build/fonts/materialdesignicons-webfont.eot",
+    "/build/fonts/materialdesignicons-webfont.ttf": "/build/fonts/materialdesignicons-webfont.ttf",
+    "/build/fonts/materialdesignicons-webfont.woff": "/build/fonts/materialdesignicons-webfont.woff",
+    "/build/fonts/materialdesignicons-webfont.woff2": "/build/fonts/materialdesignicons-webfont.woff2"
 }
