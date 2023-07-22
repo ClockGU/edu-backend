@@ -48,7 +48,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-        <v-dialog persistent max-width="500" model-value="success">
+    <v-dialog persistent max-width="500" :model-value="success">
       <v-card>
         <v-card-title>
           <p class="text-success"> Daten erfolgreich gespeichert! </p>
@@ -100,7 +100,7 @@ export default {
   },
   methods: {
     async submitData() {
-      if (!valid){
+      if (!this.valid){
         this.confirm = false;
         return
       }
@@ -112,8 +112,13 @@ export default {
         soldier: this.soldier,
         disability: this.disability,
       }
+      let token = document.getElementsByName("csrfmiddlewaretoken");
+      axios.defaults.headers.common['X-CSRFToken'] = token[0].value;
       const response = await axios.post("/submit", data);
-      console.log(response.content)
+      if (response.status === 201){
+        this.confirm = false;
+        this.success = true;
+      }
     },
     openConfirm() {
       this.confirm = true;
