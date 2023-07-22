@@ -31,3 +31,6 @@ htmlcov
 
 # Pycharm
 .idea/
+
+# node
+node_modules/

@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+
+<head>
+<title> A Title</title>
+<!-- refer to CSS that was compiled by Laravel Mix -->
+
+<link rel="stylesheet" type="text/css" href="{% static 'build/application_mask.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div id="app">
+    {% block main_content %}
+
+    {% endblock %}
+</div>
+
+<!-- refer to JS that was compiled by Laravel Mix -->
+<script type="text/javascript" src="{% static 'build/application_mask.js' %}"></script>
+</body>
+
+</html>

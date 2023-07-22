@@ -1,0 +1,29 @@
+{% extends 'application_mask/base_layout.html' %}
+
+{% block main_content %}
+<v-container>
+    <v-row>
+      <v-col cols="6" align="center">
+          <div class="justify-center">
+              <v-banner>
+                Herzlich Willkommen zu Deiner Zukunft!
+              </v-banner>
+          </div>
+      </v-col>
+      <v-col cols="6" align="center"><v-img src="../../../static/img/GU_Logo_blau_weiß_RGB.svg" aspect-ratio="16/9" width="300"></v-img></v-col>
+    </v-row>
+    <v-row>
+        <v-col cols="12">
+            <application-card></application-card>
+        </v-col>
+    </v-row>
+</v-container>
+
+
+{% endblock %}
+<script>
+    import ApplicationCard from "../../resources/js/components/ApplicationCard";
+    export default {
+        components: {ApplicationCard}
+    }
+</script>
