@@ -1,5 +1,5 @@
 import logging
-
+import dj_database_url
 from .common import *  # noqa
 
 # SECRET CONFIGURATION
@@ -40,7 +40,8 @@ INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
 INSTALLED_APPS += ("gunicorn", )
 
 # DATABASE
-DATABASES = {'default': env.db("DATABASE_URL")}
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # Sentry Configuration
