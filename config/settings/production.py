@@ -27,7 +27,7 @@ WHITENOISE_MIDDLEWARE = [
 MIDDLEWARE = WHITENOISE_MIDDLEWARE + MIDDLEWARE
 
 # STATICFILES
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # ALLOWED HOSTS
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
