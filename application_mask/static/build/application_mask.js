@@ -16839,9 +16839,29 @@ __webpack_require__.r(__webpack_exports__);
   name: "ApplicationCard",
   data: function data() {
     return {
-      message: "Welcome to Vue!",
-      s: "1"
+      administrative: false,
+      media: false,
+      firstname: "",
+      lastname: "",
+      soldier: false,
+      disability: false,
+      success: false,
+      confirm: false
     };
+  },
+  methods: {
+    submitData: function submitData() {
+      console.log({
+        administrative: this.administrative,
+        media: this.media,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        soldier: this.soldier,
+        disability: this.disability,
+        success: this.success,
+        confirm: this.confirm
+      });
+    }
   }
 });
 
@@ -16895,18 +16915,48 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_card_text, null, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_checkbox, {
-            label: "Verwaltungsfachangestellte/r (01.08.2024)"
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_checkbox, {
-            label: "Fachangestellte/r für Medien- und Informationsdienste (01.08.2024)"
-          }), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_text_field, {
+            modelValue: $data.administrative,
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+              return $data.administrative = $event;
+            }),
+            label: "Verwaltungsfachangestellte/r (01.08.2024)",
+            value: true
+          }, null, 8 /* PROPS */, ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_checkbox, {
+            modelValue: $data.media,
+            "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+              return $data.media = $event;
+            }),
+            label: "Fachangestellte/r für Medien- und Informationsdienste (01.08.2024)",
+            value: true
+          }, null, 8 /* PROPS */, ["modelValue"]), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_text_field, {
+            type: "input",
+            modelValue: $data.firstname,
+            "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+              return $data.firstname = $event;
+            }),
             label: "Vorname"
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_text_field, {
+          }, null, 8 /* PROPS */, ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_text_field, {
+            type: "input",
+            modelValue: $data.lastname,
+            "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+              return $data.lastname = $event;
+            }),
             label: "Nachname"
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_checkbox, {
-            label: "Sind Sie Soldat/in (Angabe freiwillig)?"
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_checkbox, {
-            label: "Liegt bei Ihnen eine körperlich, geistige oder anderweitige Einschränkung vor (Angabe freiwillig)?"
-          })];
+          }, null, 8 /* PROPS */, ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_checkbox, {
+            modelValue: $data.soldier,
+            "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+              return $data.soldier = $event;
+            }),
+            label: "Sind Sie Soldat/in (Angabe freiwillig)?",
+            value: true
+          }, null, 8 /* PROPS */, ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_checkbox, {
+            modelValue: $data.disability,
+            "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+              return $data.disability = $event;
+            }),
+            label: "Liegt bei Ihnen eine körperlich, geistige oder anderweitige Einschränkung vor (Angabe freiwillig)?",
+            value: true
+          }, null, 8 /* PROPS */, ["modelValue"])];
         }),
         _: 1 /* STABLE */
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_card_actions, null, {
@@ -16916,14 +16966,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Zurück zur Ausbildungsseite")];
             }),
             _: 1 /* STABLE */
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_spacer), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_btn, null, {
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_spacer), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_btn, {
+            onClick: $options.submitData
+          }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
               return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Abschicken")];
             }),
             _: 1 /* STABLE */
-          })];
+          }, 8 /* PROPS */, ["onClick"])];
         }),
-
         _: 1 /* STABLE */
       })];
     }),
