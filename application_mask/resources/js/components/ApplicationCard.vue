@@ -28,8 +28,46 @@
     <v-card-actions>
       <v-btn href="https://google.de">Zurück zur Ausbildungsseite</v-btn>
       <v-spacer/>
-      <v-btn @click="submitData" :disabled="!valid">Abschicken</v-btn>
+      <v-btn @click="openConfirm" :disabled="!valid">Abschicken</v-btn>
     </v-card-actions>
+    <v-dialog persistent max-width="500" :model-value="confirm">
+      <v-card>
+        <v-card-title>
+          <p> Bestatigen </p>
+        </v-card-title>
+        <v-card-text>
+          <p>
+            Mit dem Abschicken der Daten stimmst du der Verarbeitung deiner Daten
+            für die Bewerbung und unsere Kommunikation mit Dir entsprechend der DSGVO zu.
+          </p>
+        </v-card-text>
+        <v-card-actions>
+            <v-btn @click="confirm=!confirm">Abbrechen</v-btn>
+            <v-spacer/>
+            <v-btn @click="submitData">Abschicken</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+        <v-dialog persistent max-width="500" model-value="success">
+      <v-card>
+        <v-card-title>
+          <p class="text-success"> Daten erfolgreich gespeichert! </p>
+        </v-card-title>
+        <v-card-text>
+          <h2>
+            Wie sind die nächsten Schritte?
+          </h2>
+          <p>
+            Nach der Registrierung erhältst Du eine Bestätigung per E-Mail.
+            Kurz nach Ablauf der Ausschreibungsfrist senden wir Dir eine schriftliche Benachrichtigung
+            zum Eignungstest allen wichtigen Informationen.
+          </p>
+        </v-card-text>
+        <v-card-actions>
+            <v-btn href="https://google.de">Zurück zur Ausbildungsseite</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-card>
 </template>
 
@@ -62,16 +100,9 @@ export default {
   },
   methods: {
     submitData() {
-      console.log({
-      administrative: this.administrative,
-      media: this.media,
-      firstname: this.firstname,
-      lastname: this.lastname,
-      soldier: this.soldier,
-      disability: this.disability,
-      success: this.success,
-      confirm: this.confirm
-      })
+    },
+    openConfirm() {
+      this.confirm = true;
     }
   }
 };
