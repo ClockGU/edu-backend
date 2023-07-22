@@ -73,6 +73,7 @@
 
 <script>
 import { mdiInformationOutline } from "@mdi/js";
+import axios from "axios";
 
 export default {
   name: "ApplicationCard",
@@ -95,11 +96,24 @@ export default {
         return false;
       }
       return !(this.firstname === "" || this.lastname === "");
-
     }
   },
   methods: {
-    submitData() {
+    async submitData() {
+      if (!valid){
+        this.confirm = false;
+        return
+      }
+      const data = {
+        administrative: this.administrative,
+        media: this.media,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        soldier: this.soldier,
+        disability: this.disability,
+      }
+      const response = await axios.post("/submit", data);
+      console.log(response.content)
     },
     openConfirm() {
       this.confirm = true;
