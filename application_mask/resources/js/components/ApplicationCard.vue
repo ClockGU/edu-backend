@@ -119,8 +119,8 @@ export default {
         return
       }
       const data = {
-        administrative: this.administrative,
-        media: this.media,
+        administrative_appl: this.administrative,
+        media_appl: this.media,
         firstname: this.firstname,
         lastname: this.lastname,
         soldier: this.soldier,
