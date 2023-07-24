@@ -33,7 +33,7 @@
             <v-btn href="https://google.de">Zurück zur Ausbildungsseite</v-btn>
           </v-col>
           <v-col class="d-none d-lg-flex d-xl-none"><v-spacer/></v-col>
-          <v-col>
+          <v-col align="right">
             <v-btn @click="openConfirm" :disabled="!valid">Abschicken</v-btn>
           </v-col>
         </v-row>
