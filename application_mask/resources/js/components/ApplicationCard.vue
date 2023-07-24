@@ -33,7 +33,7 @@
             <v-btn href="https://google.de">Zurück zur Ausbildungsseite</v-btn>
           </v-col>
           <v-col class="d-none d-lg-flex d-xl-none"><v-spacer/></v-col>
-          <v-col align="right">
+          <v-col :align="alignment">
             <v-btn @click="openConfirm" :disabled="!valid">Abschicken</v-btn>
           </v-col>
         </v-row>
@@ -98,10 +98,15 @@ export default {
       disability: false,
       success: false,
       confirm: false,
-      infoIcon: mdiInformationOutline
+      infoIcon: mdiInformationOutline,
+      largeOrBigger: true
     };
   },
   computed: {
+    alignment() {
+      console.log(this.largeOrBigger ? 'right' : 'left')
+      return this.largeOrBigger ? 'right' : 'left';
+    },
     valid(){
       if (!this.administrative && !this.media){
         return false;
@@ -111,6 +116,13 @@ export default {
       }
       return email.$validator(this.email);
     }
+  },
+  created() {
+    const mediaQuery = window.matchMedia('(min-width: 600px)')
+    const setMatchStatus = (e) => this.largeOrBigger = e.matches
+    setMatchStatus(mediaQuery)
+    mediaQuery.addListener(setMatchStatus)
+    console.log('right' ? this.largeOrBigger : 'left')
   },
   methods: {
     async submitData() {
