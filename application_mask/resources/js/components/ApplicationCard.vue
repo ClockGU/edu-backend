@@ -26,9 +26,17 @@
       <v-checkbox v-model="disability" label="Liegt bei Ihnen eine körperlich, geistige oder anderweitige Einschränkung vor (Angabe freiwillig)?" :value="true"></v-checkbox>
     </v-card-text>
     <v-card-actions>
-      <v-btn href="https://google.de">Zurück zur Ausbildungsseite</v-btn>
-      <v-spacer/>
-      <v-btn @click="openConfirm" :disabled="!valid">Abschicken</v-btn>
+      <v-container>
+        <v-row dense>
+          <v-col>
+            <v-btn href="https://google.de">Zurück zur Ausbildungsseite</v-btn>
+          </v-col>
+          <v-col class="d-none d-lg-flex d-xl-none"><v-spacer/></v-col>
+          <v-col>
+            <v-btn @click="openConfirm" :disabled="!valid">Abschicken</v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-card-actions>
     <v-dialog persistent max-width="500" :model-value="confirm">
       <v-card>
