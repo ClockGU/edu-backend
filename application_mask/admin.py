@@ -1,5 +1,18 @@
 from django.contrib import admin
-from .models import Applicant
-# Register your models here.
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 
-admin.site.register(Applicant, admin.ModelAdmin)
+from .models import Applicant
+
+
+class ApplicantResource(resources.ModelResource):
+
+    class Meta:
+        model = Applicant
+
+
+class ApplicantAdmin(ImportExportModelAdmin):
+    resource_class = ApplicantResource
+
+
+admin.site.register(Applicant, ApplicantAdmin)

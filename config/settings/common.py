@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "application_mask.apps.ApplicationMaskConfig"
+    "application_mask.apps.ApplicationMaskConfig",
+    "import_export"
 ]
 
 MIDDLEWARE = [

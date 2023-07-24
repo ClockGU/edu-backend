@@ -15,6 +15,7 @@ whitenoise = "*"
 raven = "*"
 djangorestframework = "*"
 dj-database-url = "^2.0.0"
+django-import-export = "^3.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
