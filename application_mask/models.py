@@ -5,6 +5,7 @@ class Applicant(models.Model):
 
     firstname = models.CharField(max_length=200, verbose_name="Vorname")
     lastname = models.CharField(max_length=200, verbose_name="Nachname")
+    email = models.EmailField(max_length=300, default="", verbose_name="Email")
     administrative_appl = models.BooleanField(null=True, blank=True, verbose_name="Verwaltungsfachangestellte*r")
     media_appl = models.BooleanField(null=True, blank=True, verbose_name="Fachangestellte*r für Medien- und Informationsdienste")
     soldier = models.BooleanField(null=True, blank=True, verbose_name="Soldat*in")

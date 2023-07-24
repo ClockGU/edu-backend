@@ -21,6 +21,7 @@
       <div class="mt-4">
         <v-text-field type="input" v-model="firstname" label="Vorname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
         <v-text-field type="input" v-model="lastname" label="Nachname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
+        <v-text-field type="input" v-model="email" label="E-Mail" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
       </div>
       <v-checkbox v-model="soldier" label="Sind Sie Soldat/in (Angabe freiwillig)?" :value="true"></v-checkbox>
       <v-checkbox v-model="disability" label="Liegt bei Ihnen eine körperlich, geistige oder anderweitige Einschränkung vor (Angabe freiwillig)?" :value="true"></v-checkbox>
@@ -82,6 +83,7 @@
 <script>
 import { mdiInformationOutline } from "@mdi/js";
 import axios from "axios";
+import { email } from '@vuelidate/validators'
 
 export default {
   name: "ApplicationCard",
@@ -91,6 +93,7 @@ export default {
       media: false,
       firstname: "",
       lastname: "",
+      email: "",
       soldier: false,
       disability: false,
       success: false,
@@ -103,7 +106,10 @@ export default {
       if (!this.administrative && !this.media){
         return false;
       }
-      return !(this.firstname === "" || this.lastname === "");
+      if (this.firstname === "" || this.lastname === "" || this.email === "") {
+        return false
+      }
+      return email.$validator(this.email);
     }
   },
   methods: {
@@ -119,6 +125,7 @@ export default {
         lastname: this.lastname,
         soldier: this.soldier,
         disability: this.disability,
+        email: this.email
       }
       let token = document.getElementsByName("csrfmiddlewaretoken");
       axios.defaults.headers.common['X-CSRFToken'] = token[0].value;
