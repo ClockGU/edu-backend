@@ -2,7 +2,7 @@
   <v-card>
     <v-card-title>
       <v-toolbar>
-        <v-toolbar-title>Bewirb Dich digital, einfach und schnell auf unsere Ausbildungsberufe.</v-toolbar-title>
+        <v-toolbar-title>Bewirb Dich auf unsere Ausbildungsberufe - einfach und digital!</v-toolbar-title>
       </v-toolbar>
     </v-card-title>
     <v-card-text>
@@ -15,11 +15,18 @@
           </v-tooltip>
         :
       </p>
+
       <v-checkbox v-model="administrative" label="Verwaltungsfachangestellte/r (01.08.2024)" :value="true"></v-checkbox>
       <v-checkbox v-model="media" label="Fachangestellte/r für Medien- und Informationsdienste (01.08.2024)" :value="true"></v-checkbox>
+    </v-card-text>
+    <v-card-title>
+      <v-toolbar>
+        <v-toolbar-title>Bewirb Dich auf unser Duales Studium - einfach und digital!</v-toolbar-title>
+      </v-toolbar>
+    </v-card-title>
+    <v-card-text>
       <p>Wir brauchen folgende Daten, um Dich von anderen zu unterscheiden:</p>
       <div class="mt-4">
-        {{firstNameErrors}}
         <v-text-field type="input" :error-messages="firstNameErrors" @blur="v$.firstname.$touch()" v-model="firstname" label="Vorname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
         <v-text-field type="input" :error-messages="lastNameErrors" @blur="v$.lastname.$touch()" v-model="lastname" label="Nachname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
         <v-text-field type="input" :error-messages="emailErrors" @blur="v$.email.$touch()" v-model="email" label="E-Mail" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
