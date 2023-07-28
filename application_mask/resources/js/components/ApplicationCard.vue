@@ -70,7 +70,7 @@
           <p>
             Nach der Registrierung erhältst Du eine Bestätigung per E-Mail.
             Kurz nach Ablauf der Ausschreibungsfrist senden wir Dir eine schriftliche Benachrichtigung
-            zum Eignungstest allen wichtigen Informationen.
+            zum Eignungstest mit allen wichtigen Informationen.
           </p>
         </v-card-text>
         <v-card-actions>
