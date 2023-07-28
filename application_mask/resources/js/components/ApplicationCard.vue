@@ -58,7 +58,7 @@
         <v-card-text>
           <p>
             Mit dem Abschicken der Daten stimmst du der Verarbeitung deiner Daten
-            für die Bewerbung und unsere Kommunikation mit Dir entsprechend der DSGVO zu.
+            für die Bewerbung und unsere Kommunikation mit Dir entsprechend der <a href="https://www.uni-frankfurt.de/70876599/Datenschutzerkl%C3%A4rung">Datenschutzerklärung</a>zu.
           </p>
         </v-card-text>
         <v-card-actions>
