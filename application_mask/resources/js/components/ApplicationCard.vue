@@ -19,9 +19,10 @@
       <v-checkbox v-model="media" label="Fachangestellte/r für Medien- und Informationsdienste (01.08.2024)" :value="true"></v-checkbox>
       <p>Wir brauchen folgende Daten, um Dich von anderen zu unterscheiden:</p>
       <div class="mt-4">
-        <v-text-field type="input" v-model="firstname" label="Vorname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
-        <v-text-field type="input" v-model="lastname" label="Nachname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
-        <v-text-field type="input" v-model="email" label="E-Mail" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
+        {{firstNameErrors}}
+        <v-text-field type="input" :error-messages="firstNameErrors" @blur="v$.firstname.$touch()" v-model="firstname" label="Vorname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
+        <v-text-field type="input" :error-messages="lastNameErrors" @blur="v$.lastname.$touch()" v-model="lastname" label="Nachname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
+        <v-text-field type="input" :error-messages="emailErrors" @blur="v$.email.$touch()" v-model="email" label="E-Mail" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
       </div>
       <v-checkbox v-model="soldier" label="Sind Sie Soldat/in (Angabe freiwillig)?" :value="true"></v-checkbox>
       <v-checkbox v-model="disability" label="Liegt bei Ihnen eine körperlich, geistige oder anderweitige Einschränkung vor (Angabe freiwillig)?" :value="true"></v-checkbox>
@@ -83,7 +84,8 @@
 <script>
 import { mdiInformationOutline } from "@mdi/js";
 import axios from "axios";
-import { email } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
+import {email, helpers, required} from '@vuelidate/validators'
 
 export default {
   name: "ApplicationCard",
@@ -91,9 +93,9 @@ export default {
     return {
       administrative: false,
       media: false,
-      firstname: "",
-      lastname: "",
-      email: "",
+      firstname: null,
+      lastname: null,
+      email: null,
       soldier: false,
       disability: false,
       success: false,
@@ -102,19 +104,37 @@ export default {
       largeOrBigger: true
     };
   },
+    setup() {
+    return { v$: useVuelidate() };
+  },
+  validations() {
+    return {
+      firstname: {required: helpers.withMessage('Dies ist ein Pflichtfeld', required)},
+      lastname: {required: helpers.withMessage('Dies ist ein Pflichtfeld', required)},
+      email: {
+        email: helpers.withMessage('Das ist keine korrekte Email-Adresse', email),
+        required: helpers.withMessage('Dies ist ein Pflichtfeld', required)
+      }
+    }
+  },
   computed: {
+    firstNameErrors() {
+      return this.v$.firstname.$errors.map( item => item.$message);
+    },
+    lastNameErrors() {
+      return this.v$.lastname.$errors.map( item => item.$message);
+
+    },
+    emailErrors() {
+      return this.v$.email.$errors.map( item => item.$message);
+
+    },
     alignment() {
       console.log(this.largeOrBigger ? 'right' : 'left')
       return this.largeOrBigger ? 'right' : 'left';
     },
     valid(){
-      if (!this.administrative && !this.media){
-        return false;
-      }
-      if (this.firstname === "" || this.lastname === "" || this.email === "") {
-        return false
-      }
-      return email.$validator(this.email);
+      return !this.v$.$invalid;
     }
   },
   created() {
@@ -122,7 +142,6 @@ export default {
     const setMatchStatus = (e) => this.largeOrBigger = e.matches
     setMatchStatus(mediaQuery)
     mediaQuery.addListener(setMatchStatus)
-    console.log('right' ? this.largeOrBigger : 'left')
   },
   methods: {
     async submitData() {
