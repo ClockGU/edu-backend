@@ -34,8 +34,8 @@
         <v-text-field type="input" :error-messages="lastNameErrors" @blur="v$.lastname.$touch()" v-model="lastname" label="Nachname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
         <v-text-field type="input" :error-messages="emailErrors" @blur="v$.email.$touch()" v-model="email" label="E-Mail" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
       </div>
-      <v-checkbox v-model="soldier" label="Sind Sie Soldat/in (Angabe freiwillig)?" :value="true"></v-checkbox>
-      <v-checkbox v-model="disability" label="Liegt bei Ihnen eine körperlich, geistige oder anderweitige Einschränkung vor (Angabe freiwillig)?" :value="true"></v-checkbox>
+      <v-checkbox v-model="soldier" label="Bist du Soldat/in (Angabe freiwillig)?" :value="true"></v-checkbox>
+      <v-checkbox v-model="disability" label="Liegt bei dir eine körperlich, geistige oder anderweitige Einschränkung vor (Angabe freiwillig)?" :value="true"></v-checkbox>
     </v-card-text>
     <v-card-actions>
       <v-container>
