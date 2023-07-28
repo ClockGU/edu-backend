@@ -15,7 +15,6 @@
           </v-tooltip>
         :
       </p>
-
       <v-checkbox v-model="administrative" label="Verwaltungsfachangestellte/r (01.08.2024)" :value="true"></v-checkbox>
       <v-checkbox v-model="media" label="Fachangestellte/r für Medien- und Informationsdienste (01.08.2024)" :value="true"></v-checkbox>
     </v-card-text>
@@ -24,7 +23,11 @@
         <v-toolbar-title>Bewirb Dich auf unser Duales Studium - einfach und digital!</v-toolbar-title>
       </v-toolbar>
     </v-card-title>
+    <v-card-subtitle>
+      <p>Hinweis: Du benötigst die Fachhochschulreife oder allgemeine Hochschulreife (Abitur)</p>
+    </v-card-subtitle>
     <v-card-text>
+      <v-checkbox v-model="inspector" label="Inspektoranwärter*in - Bachelor of public Administation (Beamt*innenlaufbahn)" :value="true"></v-checkbox>
       <p>Wir brauchen folgende Daten, um Dich von anderen zu unterscheiden:</p>
       <div class="mt-4">
         <v-text-field type="input" :error-messages="firstNameErrors" @blur="v$.firstname.$touch()" v-model="firstname" label="Vorname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
@@ -100,6 +103,7 @@ export default {
     return {
       administrative: false,
       media: false,
+      inspector:false,
       firstname: null,
       lastname: null,
       email: null,
@@ -141,6 +145,9 @@ export default {
       return this.largeOrBigger ? 'right' : 'left';
     },
     valid(){
+      if (!this.administrative && !this.media && !this.inspector){
+        return false;
+      }
       return !this.v$.$invalid;
     }
   },
@@ -159,6 +166,7 @@ export default {
       const data = {
         administrative_appl: this.administrative,
         media_appl: this.media,
+        inspector_appl: this.inspector,
         firstname: this.firstname,
         lastname: this.lastname,
         soldier: this.soldier,

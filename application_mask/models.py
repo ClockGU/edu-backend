@@ -8,6 +8,7 @@ class Applicant(models.Model):
     email = models.EmailField(max_length=300, default="", verbose_name="Email")
     administrative_appl = models.BooleanField(null=True, blank=True, verbose_name="Verwaltungsfachangestellte*r")
     media_appl = models.BooleanField(null=True, blank=True, verbose_name="Fachangestellte*r für Medien- und Informationsdienste")
+    inspector_appl = models.BooleanField(null=True, blank=True, verbose_name="Inspektoranwärter*in")
     soldier = models.BooleanField(null=True, blank=True, verbose_name="Soldat*in")
     disability = models.BooleanField(null=True, blank=True, verbose_name="Einschränkungen")
 
