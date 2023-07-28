@@ -31,7 +31,7 @@
       <v-container>
         <v-row dense>
           <v-col>
-            <v-btn href="https://google.de">Zurück zur Ausbildungsseite</v-btn>
+            <v-btn href="https://www.uni-frankfurt.de/103026632/Start">Zurück zur Ausbildungsseite</v-btn>
           </v-col>
           <v-col class="d-none d-lg-flex d-xl-none"><v-spacer/></v-col>
           <v-col :align="alignment">
@@ -74,7 +74,7 @@
           </p>
         </v-card-text>
         <v-card-actions>
-            <v-btn href="https://google.de">Zurück zur Ausbildungsseite</v-btn>
+            <v-btn href="https://www.uni-frankfurt.de/103026632/Start">Zurück zur Ausbildungsseite</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
