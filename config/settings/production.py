@@ -44,6 +44,13 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
+# EMAIL
+ANYMAIL = {
+    "MAILJET_API_KEY": env.str("MAILJET_API_KEY"),
+    "MAILJET_SECRET_KEY": env.str("MAILJET_SECRET_KEY"),
+}
+EMAIL_BACKEND = "anymail.backends.mailjet.EmailBackend"
+
 # Sentry Configuration
 SENTRY_DSN = env('DJANGO_SENTRY_DSN')
 SENTRY_CLIENT = env(
