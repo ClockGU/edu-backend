@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "application_mask.apps.ApplicationMaskConfig",
-    "import_export"
+    "import_export",
+    "anymail"
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,13 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 SYSTEM_EMAILS = {
     "SENDER": env.str("SYSTEM_EMAIL_SENDER", "noreply@example.com"),
 }
+
+# EMAIL
+ANYMAIL = {
+    "MAILJET_API_KEY": env.str("MAILJET_API_KEY"),
+    "MAILJET_SECRET_KEY": env.str("MAILJET_SECRET_KEY"),
+}
+EMAIL_BACKEND = "anymail.backends.mailjet.EmailBackend"
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
