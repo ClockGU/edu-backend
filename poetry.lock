@@ -46,7 +46,7 @@ python-versions = "*"
 name = "certifi"
 version = "2023.5.7"
 description = "Python package for providing Mozilla's CA Bundle."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -65,7 +65,7 @@ pycparser = "*"
 name = "charset-normalizer"
 version = "3.2.0"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7.0"
 
@@ -158,6 +158,23 @@ tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 [package.extras]
 argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
+
+[[package]]
+name = "django-anymail"
+version = "10.1"
+description = "Django email backends and webhooks for Amazon SES, Brevo (Sendinblue),     MailerSend, Mailgun, Mailjet, Mandrill, Postal, Postmark, SendGrid, and SparkPost"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+django = ">=2.0"
+requests = ">=2.4.3"
+urllib3 = ">=1.25.0"
+
+[package.extras]
+amazon-ses = ["boto3"]
+postal = ["cryptography"]
 
 [[package]]
 name = "django-coverage-plugin"
@@ -318,7 +335,7 @@ tornado = ["tornado (>=0.2)"]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -674,7 +691,7 @@ tests = ["Flask (>=0.8)", "Flask-Login (>=0.2.0)", "ZConfig", "aiohttp", "anyjso
 name = "requests"
 version = "2.31.0"
 description = "Python HTTP for Humans."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -815,7 +832,7 @@ python-versions = ">=2"
 name = "urllib3"
 version = "2.0.4"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -913,7 +930,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "dfe24b48ae53117f620547541d35de391d30c786d12f5c5156d3639b8f1817a2"
+content-hash = "116fcb2d58fded89a57de326f6880ceb0d5cd3d2fcbd1b93e3015713df1e1416"
 
 [metadata.files]
 appnope = [
@@ -1168,6 +1185,10 @@ dj-database-url = [
 django = [
     {file = "Django-4.2.3-py3-none-any.whl", hash = "sha256:f7c7852a5ac5a3da5a8d5b35cc6168f31b605971441798dac845f17ca8028039"},
     {file = "Django-4.2.3.tar.gz", hash = "sha256:45a747e1c5b3d6df1b141b1481e193b033fd1fdbda3ff52677dc81afdaacbaed"},
+]
+django-anymail = [
+    {file = "django_anymail-10.1-py3-none-any.whl", hash = "sha256:e0a65c1e235dcb863dab67a3e193e899a48503b650df483d7b73f73983fd874b"},
+    {file = "django_anymail-10.1.tar.gz", hash = "sha256:5c4f26bd0f5507324ed1da31e430bca3293bb2c16f386e813484f2ea2df83d06"},
 ]
 django-coverage-plugin = [
     {file = "django_coverage_plugin-3.1.0-py3-none-any.whl", hash = "sha256:eb0ea8ffdb0db11a02994fc99be6500550efb496c350d709f418ff3d8e553a67"},
