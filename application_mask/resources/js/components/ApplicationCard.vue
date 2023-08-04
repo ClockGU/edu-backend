@@ -7,7 +7,7 @@
     </v-card-title>
     <v-card-text>
       <p>
-        Wähle den Beruf aus (Mehrfachauswahl möglich)
+        Wähle den gewünschten Ausbildungsberuf aus (Mehrfachauswahl möglich)
           <v-tooltip location="top" text="Mindestens eine Auswahl muss getätigt werden.">
             <template v-slot:activator="{ props }">
               <v-icon v-bind="props" :icon="infoIcon"></v-icon>
@@ -15,8 +15,8 @@
           </v-tooltip>
         :
       </p>
-      <v-checkbox v-model="administrative" label="Verwaltungsfachangestellte/r (01.08.2024)" :value="true"></v-checkbox>
-      <v-checkbox v-model="media" label="Fachangestellte/r für Medien- und Informationsdienste (01.08.2024)" :value="true"></v-checkbox>
+      <v-checkbox v-model="administrative" label="Verwaltungsfachangestellte*r (ab 01.08.2024)" :value="true"></v-checkbox>
+      <v-checkbox v-model="media" label="Fachangestellte*r für Medien- und Informationsdienste (ab 01.08.2024)" :value="true"></v-checkbox>
     </v-card-text>
     <v-card-title>
       <v-toolbar>
@@ -27,12 +27,12 @@
       <p>Hinweis: Du benötigst die Fachhochschulreife oder allgemeine Hochschulreife (Abitur)</p>
     </v-card-subtitle>
     <v-card-text>
-      <v-checkbox v-model="inspector" label="Inspektoranwärter*in - Bachelor of public Administation (Beamt*innenlaufbahn)" :value="true"></v-checkbox>
+      <v-checkbox v-model="inspector" label="Inspektoranwärter*in - Bachelor of Public Administration für die Beamt*innenlaufbahn (Studienbeginn 01.09.2023)" :value="true"></v-checkbox>
       <p>Wir brauchen folgende Daten, um Dich von anderen zu unterscheiden:</p>
       <div class="mt-4">
         <v-text-field type="input" :error-messages="firstNameErrors" @blur="v$.firstname.$touch()" v-model="firstname" label="Vorname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
-        <v-text-field type="input" :error-messages="lastNameErrors" @blur="v$.lastname.$touch()" v-model="lastname" label="Nachname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
-        <v-text-field type="input" :error-messages="emailErrors" @blur="v$.email.$touch()" v-model="email" label="E-Mail" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
+        <v-text-field class="mt-2" type="input" :error-messages="lastNameErrors" @blur="v$.lastname.$touch()" v-model="lastname" label="Nachname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
+        <v-text-field class="mt-2" type="input" :error-messages="emailErrors" @blur="v$.email.$touch()" v-model="email" label="E-Mail" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
       </div>
       <v-checkbox v-model="soldier" label="Bist du Soldat/in (Angabe freiwillig)?" :value="true"></v-checkbox>
       <v-checkbox v-model="disability" label="Liegt bei dir eine körperlich, geistige oder anderweitige Einschränkung vor (Angabe freiwillig)?" :value="true"></v-checkbox>
@@ -53,12 +53,12 @@
     <v-dialog persistent max-width="500" :model-value="confirm">
       <v-card>
         <v-card-title>
-          <p> Bestatigen </p>
+          <p> Bestätigen </p>
         </v-card-title>
         <v-card-text>
           <p>
             Mit dem Abschicken der Daten stimmst du der Verarbeitung deiner Daten
-            für die Bewerbung und unsere Kommunikation mit Dir entsprechend der <a href="https://www.uni-frankfurt.de/70876599/Datenschutzerkl%C3%A4rung">Datenschutzerklärung</a>zu.
+            für die Bewerbung und unsere Kommunikation mit Dir entsprechend der <a href="https://www.uni-frankfurt.de/70876599/Datenschutzerkl%C3%A4rung" target="_blank">Datenschutzerklärung</a> zu.
           </p>
         </v-card-text>
         <v-card-actions>
