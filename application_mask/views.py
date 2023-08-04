@@ -32,7 +32,7 @@ class SubmitView(CreateAPIView):
             body=self.format_message(mapped_data),
             from_email="GU Bewerberportal <{email}>".format(email=settings.SYSTEM_EMAILS["SENDER"]),
             to=[data["email"]],
-            reply_to=[data["email"], settings.SYSTEM_EMAILS["SENDER"]],
+            reply_to=[settings.SYSTEM_EMAILS["SENDER"]],
         )
         message.send(fail_silently=False)
 
@@ -49,7 +49,8 @@ class SubmitView(CreateAPIView):
             "Freiwillige Angeben von dir:",
             f"Bist du Soldat/in (Angabe freiwillig)?: {data['soldier']}",
             f"Liegt bei dir eine körperlich, geistige oder anderweitige Einschränkung vor (Angabe freiwillig)?: {data['disability']}",
-            f"Das ist eine automatisch generierte Nachricht von Clock (System URL: {data['url']})",
+            "--------------",
+            f"Das ist eine automatisch generierte Nachricht des Bewerberportals (System URL: {data['url']})",
         )
 
         return "\n".join(text)
