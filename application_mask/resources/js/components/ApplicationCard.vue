@@ -2,7 +2,7 @@
   <v-card>
     <v-card-title>
       <v-toolbar>
-        <v-toolbar-title>Ausbildungsberufe (ab 01.08.2024)</v-toolbar-title>
+        <v-toolbar-title>Ausbildung (ab 01.08.2024)</v-toolbar-title>
       </v-toolbar>
     </v-card-title>
     <v-card-text>
