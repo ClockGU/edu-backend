@@ -1,27 +1,34 @@
 {% load static %}
 <html>
+  <head>
+    <title>Ausbildung an der Goethe-Universität</title>
+    <!-- refer to CSS that was compiled by Laravel Mix -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'build/application_mask.css' %}"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'build/favicon.ico' %}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-<title> A Title</title>
-<!-- refer to CSS that was compiled by Laravel Mix -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" type="text/css" href="{% static 'build/application_mask.css' %}">
-<link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <body>
+    <div id="app">{% csrf_token %} {% block main_content %} {% endblock %}</div>
 
-</head>
-
-<body>
-<div id="app">
-    {% csrf_token %}
-    {% block main_content %}
-
-    {% endblock %}
-</div>
-
-<!-- refer to JS that was compiled by Laravel Mix -->
-<script type="text/javascript" src="{% static 'build/application_mask.js' %}"></script>
-</body>
-
+    <!-- refer to JS that was compiled by Laravel Mix -->
+    <script
+      type="text/javascript"
+      src="{% static 'build/application_mask.js' %}"
+    ></script>
+  </body>
 </html>
