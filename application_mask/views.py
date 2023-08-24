@@ -38,19 +38,19 @@ class SubmitView(CreateAPIView):
 
     def format_message(self, data):
         text = (
-            "Diese Daten wurden für deine Bewerbung gespeichert:"
+            "Diese Daten wurden für Deine Bewerbung gespeichert:",
             f"Vorname: {data['firstname']}",
             f"Nachname: {data['lastname']}",
             f"E-Mail: {data['email']}",
+            " ",
             "Ausgewählte Berufe:",
-            f"E-Verwaltungsfachangestellte/r (01.08.2024): {data['administrative_appl']}",
-            f"Fachangestellte/r für Medien- und Informationsdienste (01.08.2024): {data['media_appl']}",
-            f"Inspektoranwärter*in - Bachelor of public Administation (Beamt*innenlaufbahn): {data['inspector_appl']}",
-            "Freiwillige Angeben von dir:",
-            f"Bist du Soldat/in (Angabe freiwillig)?: {data['soldier']}",
-            f"Liegt bei dir eine körperlich, geistige oder anderweitige Einschränkung vor (Angabe freiwillig)?: {data['disability']}",
-            "--------------",
-            f"Das ist eine automatisch generierte Nachricht des Bewerberportals (System URL: {data['url']})",
+            f"Verwaltungsfachangestellte*r (ab 01.08.2024): {data['administrative_appl']}",
+            f"Fachangestellte*r für Medien- und Informationsdienste (ab 01.08.2024): {data['media_appl']}",
+            f"Inspektoranwärter*in - Bachelor of Public Administation (ab 01.09.2024): {data['inspector_appl']}",
+            " ",
+            "Nach Abschluss der Bewerbungsfrist erhältst Du von uns per Mail eine Einladung zu einem Online-Einstellungstest und weitere Informationen."
+            "-----------------------",
+            f"Dies ist eine automatisch generierte Nachricht des Bewerberportals für Auszubildende (System URL: {data['url']})",
         )
 
         return "\n".join(text)
