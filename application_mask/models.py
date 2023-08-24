@@ -15,3 +15,6 @@ class Applicant(models.Model):
     class Meta:
         verbose_name = "Bewerber*in"
         verbose_name_plural = "Bewerber*innen"
+
+    def __str__(self):
+        return f"Bewerber: {self.firstname} {self.lastname}"
