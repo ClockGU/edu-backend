@@ -149,7 +149,6 @@ export default {
 
     },
     alignment() {
-      console.log(this.largeOrBigger ? 'right' : 'left')
       return this.largeOrBigger ? 'right' : 'left';
     },
     valid(){

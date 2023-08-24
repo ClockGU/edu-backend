@@ -45,7 +45,7 @@ class SubmitView(CreateAPIView):
             f"Fachangestellte*r für Medien- und Informationsdienste (ab 01.08.2024): {data['media_appl']}",
             f"Inspektoranwärter*in - Bachelor of Public Administation (ab 01.09.2024): {data['inspector_appl']}",
             " ",
-            "Nach Abschluss der Bewerbungsfrist erhältst Du von uns per Mail eine Einladung zu einem Online-Einstellungstest und weitere Informationen."
+            "Nach Abschluss der Bewerbungsfrist erhältst Du von uns per Mail eine Einladung zu einem Online-Einstellungstest und weitere Informationen.",
             "-----------------------",
             f"Dies ist eine automatisch generierte Nachricht des Bewerberportals für Auszubildende (System URL: {data['url']})",
         )
