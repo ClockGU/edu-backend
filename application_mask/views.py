@@ -23,7 +23,7 @@ class SubmitView(CreateAPIView):
 
     def send_mail(self, request, data):
         mapped_data = map_true_false(data)
-        mapped_data["url"] = request.build_absolute_uri()
+        mapped_data["url"] = f"https://{request.get_host()}"
         message = EmailMessage(
             subject="Bewerbung erfolgreich!",
             body=self.format_message(mapped_data),
