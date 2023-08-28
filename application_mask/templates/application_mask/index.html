@@ -28,6 +28,7 @@
     </p>
     <v-col cols="12">
       <application-card></application-card>
+        <registration-disabled-dialog :boolean-integer="{{ registration_disabled }}"></registration-disabled-dialog>
     </v-col>
   </v-row>
 </v-container>
@@ -35,7 +36,8 @@
 {% endblock %}
 <script>
   import ApplicationCard from "../../resources/js/components/ApplicationCard";
+  import RegistrationDisabledDialog from "../../resources/js/components/RegistrationDisabledDialog";
   export default {
-    components: { ApplicationCard },
+    components: {RegistrationDisabledDialog, ApplicationCard },
   };
 </script>

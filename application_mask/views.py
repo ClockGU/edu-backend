@@ -1,5 +1,7 @@
 import json
+from datetime import date
 
+import environ
 from django.core.mail import EmailMessage
 from django.shortcuts import render
 
@@ -10,7 +12,11 @@ from django.conf import settings
 
 
 def index(request):
-    return render(request, "application_mask/index.html")
+    env = environ.Env()
+    reg_start_date = date.fromisoformat(env.str("REG_START_DATE"))
+    reg_end_date = date.fromisoformat(env.str("REG_END_DATE"))
+    context = {"registration_disabled": int(not (reg_start_date <= date.today() <= reg_end_date))}
+    return render(request, template_name="application_mask/index.html", context=context)
 
 
 class SubmitView(CreateAPIView):
