@@ -8,6 +8,7 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
+import RegistrationDisabledDialog from "./components/RegistrationDisabledDialog";
 
 const vuetify = createVuetify({
   components,
@@ -24,4 +25,5 @@ const vuetify = createVuetify({
 const app = createApp({});
 app.config.compilerOptions.delimiters = ['[[', ']]'];
 app.component("application-card", ApplicationCard);
+app.component("registration-disabled-dialog", RegistrationDisabledDialog)
 app.use(vuetify).mount('#app');

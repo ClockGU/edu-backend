@@ -21,6 +21,8 @@ services:
       POSTGRES_PORT: 5432
       MAILJET_API_KEY: 9298092812312312312
       MAILJET_SECRET_KEY: 987654321
+      REG_START_DATE: "2023-09-10"
+      REG_END_DATE: "2023-09-30"
     volumes:
       - .:/app
     depends_on:
