@@ -2,15 +2,26 @@
     <v-dialog persistent max-width="500" :model-value="show">
       <v-card>
         <v-card-title>
-          <p class="text-amber"> Die Bewerbungsfrist ist beendet. </p>
+          <p class="text-"> Die Bewerbungsfrist ist beendet. </p>
         </v-card-title>
         <v-card-text>
           <h2>
-            Wie sind die nächsten Schritte?
+            Ooops was ist hier passiert?
           </h2>
-          <p>
-            Die Frist für die diesjährige Bewerbungsrunde ist beendet.
-          </p>
+          <div class="mt-4 mb-4">
+            <p>
+              Liebe Bewerbende,
+            </p>
+          </div>
+          <span>
+            leider ist die Bewerbungsfrist für unsere Ausschreibung abgelaufen. Deine Bewerbung können wir somit nicht mehr berücksichtigen.
+            Informiere Dich über Neuigkeiten gerne immer auf unserer Ausbildungsseite.
+          </span>
+          <div class="mt-4">
+            <p>
+              Das Ausbildungsteam
+            </p>
+          </div>
         </v-card-text>
         <v-card-actions>
             <v-btn href="https://www.uni-frankfurt.de/103026632/Start">Zurück zur Ausbildungsseite</v-btn>
