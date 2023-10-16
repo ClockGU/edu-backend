@@ -29,7 +29,12 @@ class ZipExportModelAdmin(ImportExportModelAdmin):
 
     def get_export_data(self, file_format, queryset, *args, **kwargs):
         export_inspector = super(ZipExportModelAdmin, self).get_export_data(file_format, queryset=queryset.filter(inspector_appl=True), *args, **kwargs)
-        export_administartive = super(ZipExportModelAdmin, self).get_export_data(file_format, queryset=queryset.exclude(inspector_appl=True), *args, **kwargs)
+        export_administartive = super(ZipExportModelAdmin, self).get_export_data(
+            file_format,
+            queryset=queryset.exclude(inspector_appl=True, administrative_appl=False, media_appl=False),
+            *args,
+            **kwargs
+        )
         temp_file = io.BytesIO()
         with zipfile.ZipFile(
                 temp_file, "w", zipfile.ZIP_DEFLATED
