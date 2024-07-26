@@ -1,6 +1,5 @@
 {
-    "/build/application_mask.js": "/build/application_mask.js",
-    "/build/application_mask.css": "/build/application_mask.css",
+    "/main.js": "/main.js",
     "/build/fonts/materialdesignicons-webfont.eot": "/build/fonts/materialdesignicons-webfont.eot",
     "/build/fonts/materialdesignicons-webfont.ttf": "/build/fonts/materialdesignicons-webfont.ttf",
     "/build/fonts/materialdesignicons-webfont.woff": "/build/fonts/materialdesignicons-webfont.woff",

@@ -10,7 +10,7 @@ instance.
 
 ## Details
 
-We're using `Python 3.7-slim` for the base image as a trade-off of container size and build time.
+We're using `Python 3.10-slim` for the base image as a trade-off of container size and build time.
  Further we utilize [`poetry`](https://github.com/python-poetry/poetry) to try out a new approach
   of Python requirement management.
 
@@ -26,29 +26,25 @@ We're using `Python 3.7-slim` for the base image as a trade-off of container siz
   files.
 * Run continuous integration of Travis-CI.
 * Deploy to [Dokku](https://github.com/dokku/dokku) for production.
-* Use [Sentry](https://sentry.io/) for error reporting on your production
-  instance.
-  * **Psssst! You can easily run your own [Sentry instance on
-  Dokku](https://github.com/mimischi/dokku-sentry)!**
+* Using Laravel Mix we incorporate Vue components
+
 
 **Note: In the current layout, with the `Dockerfile` residing under
 `./docker/dokku/Dockerfile`, you will need to install the
 [`dokku-dockerfile`](https://github.com/mimischi/dokku-dockerfile) plugin and
 set the path accordingly.****
 
-### Planned
-
-* It would be neat to get [Celery](http://www.celeryproject.org/) to work.
-
 # Usage
 
 ## Local development
 
-Running `make build` will download all required images (`python:3.7-slim` and
-`postgresql:9.6-alpine`) and build the app. Next you need to run `make migrate` to run
+Running `make build` will download all required images (`python:3.10-slim` and
+`postgresql:15.2-alpine`) and build the app. Next you need to run `make migrate` to run
 all database migrations, after which you can actually start using this project.
 Running `docker-compose up` will collect all staticfiles and start both
 services. The app will be available via [localhost:8000](http://localhost:8000).
+To compile the Vue components and allow this project to work you need to invoke `yarn mix`.
+For automatic recompilation use `yarn watch` which recompiles after each save.
 
 ## Deployment to production (via Dokku)
 
@@ -87,7 +83,7 @@ as a `git remote`:
 `git remote add dokku dokku@djangodocker.example.com:djangodocker`
 
 ### Deployment
-
+Before actually deploying run `yarn production` and commit the new files.
 Deploying the `master` branch of the app is straightforward:
 
 `git push dokku master`

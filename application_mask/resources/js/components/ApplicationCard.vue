@@ -2,7 +2,7 @@
   <v-card>
     <v-card-title>
       <v-toolbar>
-        <v-toolbar-title>Ausbildung (ab 01.08.2024)</v-toolbar-title>
+        <v-toolbar-title>Ausbildung (ab 01.08.{{year}})</v-toolbar-title>
       </v-toolbar>
     </v-card-title>
     <v-card-text>
@@ -20,7 +20,7 @@
     </v-card-text>
     <v-card-title>
       <v-toolbar>
-        <v-toolbar-title>Duales Studium (ab 01.09.2024)</v-toolbar-title>
+        <v-toolbar-title>Duales Studium (ab 01.09.{{year}})</v-toolbar-title>
       </v-toolbar>
     </v-card-title>
     <v-card-text>
@@ -107,6 +107,12 @@ import {email, helpers, required} from '@vuelidate/validators'
 
 export default {
   name: "ApplicationCard",
+  props: {
+    year: {
+      type: Number,
+      required: true
+    }
+  },
   data() {
     return {
       administrative: false,

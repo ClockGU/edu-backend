@@ -15,7 +15,8 @@ def index(request):
     env = environ.Env()
     reg_start_date = date.fromisoformat(env.str("REG_START_DATE"))
     reg_end_date = date.fromisoformat(env.str("REG_END_DATE"))
-    context = {"registration_disabled": int(not (reg_start_date <= date.today() <= reg_end_date))}
+    context = {"registration_disabled": int(not (reg_start_date <= date.today() <= reg_end_date)),
+               "year": reg_start_date.year + 1}
     return render(request, template_name="application_mask/index.html", context=context)
 
 
