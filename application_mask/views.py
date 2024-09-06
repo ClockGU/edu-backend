@@ -41,6 +41,7 @@ class SubmitView(CreateAPIView):
         message.send(fail_silently=False)
 
     def format_message(self, data):
+        year = date.today().year + 1
         text = (
             "Diese Daten wurden für Deine Bewerbung gespeichert:",
             f"Vorname: {data['firstname']}",
@@ -48,9 +49,9 @@ class SubmitView(CreateAPIView):
             f"E-Mail: {data['email']}",
             " ",
             "Ausgewählte Berufe:",
-            f"Verwaltungsfachangestellte*r (ab 01.08.2024): {data['administrative_appl']}",
-            f"Fachangestellte*r für Medien- und Informationsdienste (ab 01.08.2024): {data['media_appl']}",
-            f"Inspektoranwärter*in - Bachelor of Public Administation (ab 01.09.2024): {data['inspector_appl']}",
+            f"Verwaltungsfachangestellte*r (ab 01.08.{year}): {data['administrative_appl']}",
+            f"Fachangestellte*r für Medien- und Informationsdienste (ab 01.08.{year}): {data['media_appl']}",
+            f"Inspektoranwärter*in - Bachelor of Public Administation (ab 01.09.{year}): {data['inspector_appl']}",
             " ",
             "Nach Abschluss der Bewerbungsfrist erhältst Du von uns per Mail eine Einladung zu einem Online-Einstellungstest und weitere Informationen.",
             "-----------------------",
