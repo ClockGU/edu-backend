@@ -11,6 +11,7 @@ class Applicant(models.Model):
     inspector_appl = models.BooleanField(null=True, blank=True, verbose_name="Inspektoranwärter*in")
     soldier = models.BooleanField(null=True, blank=True, verbose_name="Soldat*in")
     disability = models.BooleanField(null=True, blank=True, verbose_name="Einschränkungen")
+    gender = models.CharField(choices=[("m", "männlich"),("w","weiblich"), ("d","divers")], max_length=1, default="d", verbose_name="Geschlecht")
 
     class Meta:
         verbose_name = "Bewerber*in"

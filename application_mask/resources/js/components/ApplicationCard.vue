@@ -41,6 +41,8 @@
         <v-text-field type="input" :error-messages="firstNameErrors" @blur="v$.firstname.$touch()" v-model="firstname" label="Vorname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
         <v-text-field class="mt-3" type="input" :error-messages="lastNameErrors" @blur="v$.lastname.$touch()" v-model="lastname" label="Nachname" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
         <v-text-field class="mt-3" type="input" :error-messages="emailErrors" @blur="v$.email.$touch()" v-model="email" label="E-Mail" persistent-hint hint="Dies ist ein Pflichtfeld."></v-text-field>
+        <v-select class="mt-3" type="input" :items="genderSelection" v-model="gender" label="Geschlecht/Gender" persistent-hint hint="Dies ist ein Pflichtfeld."></v-select>
+
       </div>
       <v-checkbox v-model="soldier" class="mt-2" hide-details label="Bist Du Soldat*in? (Angabe freiwillig)" :value="true"></v-checkbox>
       <v-checkbox v-model="disability" hide-details label="Liegt bei dir eine körperlich, geistige oder anderweitige Einschränkung vor? (Angabe freiwillig)" :value="true"></v-checkbox>
@@ -126,7 +128,13 @@ export default {
       success: false,
       confirm: false,
       infoIcon: mdiInformationOutline,
-      largeOrBigger: true
+      largeOrBigger: true,
+      genderSelection: [
+        {title:"männlich", value:"m"},
+        {title:"weiblich", value:"w"},
+        {title:"divers", value:"d"},
+      ],
+      gender:"d"
     };
   },
     setup() {
@@ -184,7 +192,8 @@ export default {
         lastname: this.lastname,
         soldier: this.soldier,
         disability: this.disability,
-        email: this.email
+        email: this.email,
+        gender: this.gender
       }
       let token = document.getElementsByName("csrfmiddlewaretoken");
       axios.defaults.headers.common['X-CSRFToken'] = token[0].value;
